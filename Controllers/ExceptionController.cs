@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TestAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ExceptionController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
