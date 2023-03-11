@@ -29,18 +29,27 @@ namespace TestAPI.Controllers
         [HttpGet]
         public ActionResult<int> DoubleHop()
         {
-            var result = client.GetStringAsync(reqUrl).Result;
-            return result;
+            string res = client.GetStringAsync(reqUrl).Result;
+            
+            Int32.TryParse(res, out int r);
+
+            return r;
 
         }
 
         [HttpGet]
         public ActionResult<int> ChattyDoubleHop()
         {
+            int r = 0;
             int result = 0;
-            for(int i = 0; i!=10;i++)
-                result += client.GetStringAsync(reqUrl2).Result;
-            return result;
+            string res;
+            for (int i = 0; i != 10; i++)
+            {
+                res = client.GetStringAsync(reqUrl2).Result;
+                Int32.TryParse(res, out r);
+                result += r;
+            }
+            return r;
 
         }
 
