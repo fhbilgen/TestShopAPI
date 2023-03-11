@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TestAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]/[action]")]
     public class ExceptionController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
@@ -15,8 +15,8 @@ namespace TestAPI.Controllers
         }
 
 
-        [HttpGet(Name = "GetException")]
-        public ActionResult<int> Get()
+        [HttpGet]
+        public ActionResult<int> ThrowException()
         {
             int i = int.Parse(notanumber);
             return i;
