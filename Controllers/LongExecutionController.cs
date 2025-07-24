@@ -8,8 +8,12 @@ namespace TestAPI.Controllers
     {
         private static readonly HttpClient client = new HttpClient();
 
-        private static string reqUrl = "https://testshopapi2.azurewebsites.net/api/outerrim/longexecution";
-        private static string reqUrl2 = "https://testshopapi2.azurewebsites.net/api/outerrim/randomexecution";
+        //private static string reqUrl = "https://testshopapi2.azurewebsites.net/api/outerrim/longexecution";
+        //private static string reqUrl2 = "https://testshopapi2.azurewebsites.net/api/outerrim/randomexecution";
+
+        
+        private static string reqUrl = Environment.GetEnvironmentVariable("TestShopApi2_LongExecution");
+        private static string reqUrl2 = Environment.GetEnvironmentVariable("TestShopApi2_RandomExecution");
 
         private readonly ILogger<WeatherForecastController> _logger;
        
