@@ -14,6 +14,7 @@ namespace TestAPI.Controllers
         
         private static string reqUrl = Environment.GetEnvironmentVariable("TestShopApi2_LongExecution");
         private static string reqUrl2 = Environment.GetEnvironmentVariable("TestShopApi2_RandomExecution");
+        private static string reqUrl3 = Environment.GetEnvironmentVariable("TestShopApi2_DoubleHopIncreaseMemory");
 
         private readonly ILogger<WeatherForecastController> _logger;
        
@@ -57,5 +58,15 @@ namespace TestAPI.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult<int> DoubleHopIncreaseMemory()
+        {
+            string res = client.GetStringAsync(reqUrl3).Result;
+
+            Int32.TryParse(res, out int r);
+
+            return r;
+
+        }
     }
 }
